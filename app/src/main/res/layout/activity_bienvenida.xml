@@ -7,7 +7,7 @@
     tools:context=".Bienvenida">
 
     <VideoView
-        android:id="@+id/videoView"
+        android:id="@+id/videoLogo"
         android:layout_width="261dp"
         android:layout_height="425dp"
         app:layout_constraintBottom_toBottomOf="parent"
