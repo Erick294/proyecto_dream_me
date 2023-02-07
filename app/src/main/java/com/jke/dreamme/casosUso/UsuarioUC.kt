@@ -5,7 +5,7 @@ import com.jke.dreamme.model.endPoints.UsuarioEndPoint
 import com.jke.dreamme.model.entities.api.usuario.Usuario
 import com.jke.dreamme.model.repositories.APIRepository
 
-class UserUC {
+class UsuarioUC {
     suspend fun getUsuario(usuario: String): Usuario? {
         var data: Usuario? = null
         try {

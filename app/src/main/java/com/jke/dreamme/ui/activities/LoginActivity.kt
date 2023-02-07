@@ -4,8 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
+import com.jke.dreamme.casosUso.UsuarioUC
 import com.jke.dreamme.databinding.ActivityLoginBinding
-import com.jke.dreamme.databinding.ActivitySplashScreenBinding
 
 class LoginActivity : AppCompatActivity() {
 
@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(intent)
             } else {
                 Snackbar.make(
-                    txt, "Email incorrecto o inactivo",
+                    binding.login_txt_email, "Email incorrecto o inactivo",
                     Snackbar.LENGTH_SHORT
                 ).show()
             }
