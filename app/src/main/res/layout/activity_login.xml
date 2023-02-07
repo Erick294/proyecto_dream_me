@@ -33,48 +33,22 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/text_user_name"
+            android:hint="@string/text_user_email_register"
             android:textColorHint="@color/white"
             app:boxBackgroundColor="@color/ble_sky_app"
             app:boxCornerRadiusTopEnd="25dp"
             app:boxCornerRadiusBottomStart="25dp"
             app:boxStrokeColor="@color/white"
-            app:startIconDrawable="@drawable/ic_user">
+            app:startIconDrawable="@drawable/ic_email">
 
             <EditText
-                android:id="@+id/login_txt_user"
+                android:id="@+id/login_txt_email"
                 android:layout_width="match_parent"
                 android:fontFamily="@font/acme"
                 android:textSize="18sp"
                 android:textColor="@color/white"
                 android:layout_height="@dimen/edittext_height"
                 android:layout_margin="@dimen/margin_text" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textField1"
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-            android:layout_width="match_parent"
-            android:layout_height="82dp"
-            android:hint="@string/text_user_password"
-            android:textColorHint="@color/white"
-            app:boxCornerRadiusTopEnd="25dp"
-            app:boxCornerRadiusBottomStart="25dp"
-            app:boxBackgroundColor="@color/ble_sky_app"
-            app:boxStrokeColor="@color/white"
-            app:endIconMode="password_toggle"
-            app:startIconDrawable="@drawable/ic_password">
-
-            <EditText
-                android:id="@+id/login_txt_pass"
-                android:layout_width="match_parent"
-                android:layout_height="62dp"
-                android:fontFamily="@font/acme"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                android:layout_marginLeft="@dimen/margin_text"
-                android:layout_marginRight="@dimen/margin_text"
-                android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

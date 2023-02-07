@@ -19,18 +19,23 @@ class LoginActivity : AppCompatActivity() {
         initRegister()
     }
 
-    private fun initLogin() {
-        val txt = binding.loginTxtUser
+    private fun initLogin(){
+        val txtEmail = binding.login_txt_email
         binding.buttonLogin.setOnClickListener {
-            val txtUser = binding.loginTxtUser.text.toString()
-            val txtPass = binding.loginTxtPass.text.toString()
+            validarEmail(txtEmail.text.toString())
+        }
+    }
 
-            if (txtUser == ("admin") && txtPass == "admin") {
-                var intent = Intent(this, PrincipalActivity::class.java)
+    private fun validarEmail(email:String) {
+
+	    lifecycleScope.launch {
+            val usuario = UsuarioUC().getUsuario(email)
+            if (usuario?.status == "active") {
+                var intent = Intent(this@LoginActivity, PrincipalActivity::class.java)
                 startActivity(intent)
             } else {
                 Snackbar.make(
-                    txt, "Nombre de usuario o contraseña incorrectos",
+                    txt, "Email incorrecto o inactivo",
                     Snackbar.LENGTH_SHORT
                 ).show()
             }
