@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
+            app:collapseIcon="@drawable/ic_baseline_menu_24"
             app:popupTheme="@style/Theme.Material3.DayNight.NoActionBar" />
 
     </com.google.android.material.appbar.AppBarLayout>

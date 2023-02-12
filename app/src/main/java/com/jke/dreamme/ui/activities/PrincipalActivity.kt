@@ -1,17 +1,20 @@
 package com.jke.dreamme.ui.activities
 
-import android.R
+import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.support.annotation.NonNull
+import android.support.annotation.StringRes
+import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
+import com.jke.dreamme.R
 import com.jke.dreamme.databinding.ActivityPrincipalBinding
 
-
-class PrincipalActivity : AppCompatActivity() {
+class PrincipalActivity : AppCompatActivity(){
     private lateinit var binding: ActivityPrincipalBinding
     private lateinit var drawerLayout: DrawerLayout
 
@@ -33,6 +36,7 @@ class PrincipalActivity : AppCompatActivity() {
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+
     }
 
   override fun onBackPressed() {
@@ -41,5 +45,5 @@ class PrincipalActivity : AppCompatActivity() {
         } else {
             super.onBackPressed();
         }
-    }
+  }
 }

@@ -16,4 +16,9 @@ class APIRepository {
         return builder.create(servicio)
     }
 
+    fun <T> buildStableService(servicio: Class<T>): T {
+        val builder = getRetrofitBuilder("https://stablediffusionapi.com/api/v3/")
+        return builder.create(servicio)
+    }
+
 }

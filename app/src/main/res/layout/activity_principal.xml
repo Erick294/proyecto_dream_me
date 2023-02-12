@@ -10,11 +10,12 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ejemplo" />
+    <FrameLayout
+        android:id="@+id/setView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/principal_content"
@@ -25,16 +26,34 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize" />
+            android:layout_height="?attr/actionBarSize"
+            app:collapseIcon="@drawable/ic_baseline_menu_24"
+            app:navigationIconTint="@color/white"
+            app:titleTextColor="@color/white" />
 
     </LinearLayout>
+
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        app:drawerLayoutCornerSize="35dp"
+        android:paddingTop="175dp"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:menu="@menu/navigation_drawer" />
+        app:menu="@menu/navigation_drawer" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/acme"
+            android:text="@string/desarroladora"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:translationX="95dp"
+            android:translationY="500dp" />
+    </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -1,7 +1,6 @@
 package com.jke.dreamme.model.endPoints
 
 import com.jke.dreamme.model.entities.api.usuario.Usuario
-import com.jke.dreamme.model.entities.api.usuario.UsuarioLista
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

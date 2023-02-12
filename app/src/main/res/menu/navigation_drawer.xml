@@ -6,29 +6,19 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="camera" />
+            android:id="@+id/generarImagen"
+            android:icon="@drawable/ic_baseline_mic_24"
+            android:title="Generar imagen" />
 
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/galeria"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:title="Galería" />
 
         <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_email"
-            android:title="dfd" />
-
-        <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/ic_launcher_background"
-            android:title="sds" />
-
-        <item
-            android:id="@+id/nav_send"
-            android:icon="@drawable/ic_password"
-            android:title="sdsd" />
+            android:id="@+id/extras"
+            android:icon="@drawable/ic_baseline_question_mark_24"
+            android:title="Quienes somos" />
 
     </group>
 

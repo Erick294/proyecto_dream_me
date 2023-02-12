@@ -45,7 +45,8 @@
                 android:id="@+id/login_txt_email"
                 android:layout_width="match_parent"
                 android:fontFamily="@font/acme"
-                android:textSize="18sp"
+                android:textSize="17sp"
+                android:padding="-20dp"
                 android:textColor="@color/white"
                 android:layout_height="@dimen/edittext_height"
                 android:layout_margin="@dimen/margin_text" />
