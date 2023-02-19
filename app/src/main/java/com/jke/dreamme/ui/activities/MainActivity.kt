@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                     result.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.get(0)
 
                 if (!message.isNullOrEmpty()) {
-                    val imagenIntent = Intent(this, ImagenActivity::class.java)
+                    val imagenIntent = Intent(this, LoginActivity::class.java)
 
                     imagenIntent.putExtra("prompt",message)
                     startActivity(imagenIntent)
