@@ -41,7 +41,7 @@
             app:boxStrokeColor="@color/white"
             app:startIconDrawable="@drawable/ic_email">
 
-            <EditText
+            <!--<EditText
                 android:id="@+id/login_txt_email"
                 android:layout_width="match_parent"
                 android:fontFamily="@font/acme"
@@ -49,10 +49,10 @@
                 android:padding="-20dp"
                 android:textColor="@color/white"
                 android:layout_height="@dimen/edittext_height"
-                android:layout_margin="@dimen/margin_text" />
+                android:layout_margin="@dimen/margin_text" />-->
         </com.google.android.material.textfield.TextInputLayout>
 
-        <Button
+      <!--  <Button
             android:id="@+id/button_login"
             android:layout_width="138dp"
             android:layout_height="54dp"
@@ -62,10 +62,26 @@
             android:layout_marginTop="32dp"
             android:text="@string/text_button_login"
             app:cornerRadius="10dp"
-            tools:ignore="TextContrastCheck" />
+            tools:ignore="TextContrastCheck" />-->
     </LinearLayout>
 
-    <TextView
+    <ImageView
+            android:layout_width="76dp"
+            android:layout_height="86dp"
+            app:srcCompat="@drawable/finger"
+            android:id="@+id/finger"
+            android:layout_marginEnd="168dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="167dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="33dp"
+            android:layout_marginTop="264dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            android:foregroundTint="#FFF7F7"
+            android:tint="#FAFAFA" />
+
+    <!--<TextView
         android:id="@+id/register_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,6 +95,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

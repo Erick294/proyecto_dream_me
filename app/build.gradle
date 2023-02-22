@@ -71,6 +71,9 @@ dependencies {
     //Material
     implementation 'com.google.android.material:material:1.8.0'
 
+    //huella dactilar
+    implementation "androidx.biometric:biometric:1.1.0"
+
     //Firebase
     //implementation platform('com.google.firebase:firebase-bom:31.2.0')
     //implementation 'com.google.firebase:firebase-analytics-ktx'
