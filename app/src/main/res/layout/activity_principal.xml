@@ -11,10 +11,14 @@
     tools:openDrawer="start">
 
     <FrameLayout
-        android:id="@+id/setView"
+        android:id="@+id/FragmentImagen"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="match_parent"
+            android:layout_marginTop="125dp"
+            android:layout_marginBottom="82dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
     </FrameLayout>
 
     <LinearLayout

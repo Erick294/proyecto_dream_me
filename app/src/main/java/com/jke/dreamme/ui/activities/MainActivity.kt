@@ -1,9 +1,14 @@
 package com.jke.dreamme.ui.activities
 
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.speech.RecognizerIntent
+import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
@@ -19,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initAnim()
         initElements()
     }
 
@@ -30,10 +36,10 @@ class MainActivity : AppCompatActivity() {
                     result.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.get(0)
 
                 if (!message.isNullOrEmpty()) {
-                    val imagenIntent = Intent(this, LoginActivity::class.java)
+                    val principalIntent = Intent(this, PrincipalActivity::class.java)
 
-                    imagenIntent.putExtra("prompt",message)
-                    startActivity(imagenIntent)
+                    principalIntent.putExtra("prompt",message)
+                    startActivity(principalIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
                 }
 
 
@@ -48,6 +54,11 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun initElements() {
+        intent.extras?.let {
+            val nombre = it.getString("nombre").toString()
+            binding.textBienvenidaMain.text = "Bienvenid@\n" + nombre
+        }
+
         binding.microButton.setOnClickListener {
 
             val speak = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
@@ -64,9 +75,30 @@ class MainActivity : AppCompatActivity() {
                 "Estoy escuchandote"
             )
             speakForResult.launch(speak)
-
         }
 
+    }
+
+    private fun initAnim(){
+        binding.textBienvenidaMain.startAnimation(animationTranslate())
+        binding.textInstruccionMain.startAnimation(animationScale())
+        binding.textInstruccion2Main.startAnimation(animationScale())
+
+    }
+
+
+    private fun animationTranslate(): Animation{
+        val animation: Animation;
+
+        animation = AnimationUtils.loadAnimation(this, R.anim.anim_text_translate)
+        return animation
+    }
+
+    private fun animationScale(): Animation{
+        val animation: Animation;
+
+        animation = AnimationUtils.loadAnimation(this, R.anim.anim_text_scale)
+        return animation
     }
 
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.ImagenFragment"
+        android:backgroundTint="@color/blue_app"
+        android:background="@color/blue_app">
+
+    <ImageView
+            android:src="@drawable/ic_baseline_question_mark_24"
+            android:layout_width="384dp"
+            android:layout_height="512dp"
+            android:id="@+id/imageView"
+            android:translationX="12dp"
+            android:translationY="24dp" />
+
+    <TextView
+            android:text="@string/text_prompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text_promt_fragment"
+            android:translationY="612dp"
+            android:translationX="165dp"
+            android:fontFamily="@font/acme"
+            android:textSize="18sp"
+            android:padding="-20dp"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+</FrameLayout>

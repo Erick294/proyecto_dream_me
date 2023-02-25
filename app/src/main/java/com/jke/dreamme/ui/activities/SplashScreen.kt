@@ -1,6 +1,7 @@
 package com.jke.dreamme.ui.activities
 
 import android.R
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -20,7 +21,7 @@ class SplashScreen : AppCompatActivity() {
         Handler().postDelayed(Runnable { //This method will be executed once the timer is over
             // Start your app main activity
             val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
             // close this activity
             finish()
         }, 2000)

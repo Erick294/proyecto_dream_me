@@ -10,9 +10,10 @@
     //register
     <string name="text_user_name_register">Ingrese su nombre</string>
     <string name="text_user_password_register">Ingrese su contraseña</string>
-    <string name="text_user_email_register">Ingrese su email</string>
+    <string name="text_user_email_register">Ingrese su número de id</string>
     <string name="text_button_register">Registrarse</string>
     <string name="text_login">¿Ya tiene cuenta? Ingresar</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_principal">PrincipalActivity</string>
@@ -28,5 +29,10 @@
     <string name="menu_slideshow">Slideshow</string>
 
     <string name="desarroladora">JEK Developers</string>
+    <string name="bienvenida">Bienvenid@\n</string>
+    <string name="instruccion">Toca el microfono y deja volar tu imaginación</string>
+    <string name="instruccion2">Puedes decir lo que quieras!</string>
+
+    <string name="text_prompt">Prompt</string>
 
 </resources>

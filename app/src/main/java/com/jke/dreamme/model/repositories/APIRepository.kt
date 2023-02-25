@@ -17,7 +17,7 @@ class APIRepository {
     }
 
     fun <T> buildStableService(servicio: Class<T>): T {
-        val builder = getRetrofitBuilder("https://stablediffusionapi.com/api/v3/")
+        val builder = getRetrofitBuilder("https://api.replicate.com/v1/predictions/")
         return builder.create(servicio)
     }
 

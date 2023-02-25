@@ -1,5 +1,6 @@
 package com.jke.dreamme.ui.activities
 
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -29,17 +30,18 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun validarEmail(email: String) {
+    private fun validarEmail(id: String) {
 
 	    lifecycleScope.launch() {
-            val usuario = UsuarioUC().getUsuario(email)
+            val usuario = UsuarioUC().getUsuario(id)
             Log.d("El pepe", usuario.toString())
             if (usuario?.status == "active" || binding.loginTxtEmail.text.contains("hola")) {
                 var intent = Intent(this@LoginActivity, MainActivity::class.java)
-                startActivity(intent)
+                intent.putExtra("nombre", usuario?.name)
+                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this@LoginActivity).toBundle())
             } else {
                 Snackbar.make(
-                    binding.loginTxtEmail, "Email incorrecto o inactivo",
+                    binding.loginTxtEmail, "Id incorrecto o inactivo",
                     Snackbar.LENGTH_SHORT
                 ).show()
             }
