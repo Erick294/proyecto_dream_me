@@ -21,7 +21,7 @@ class SplashScreen : AppCompatActivity() {
         Handler().postDelayed(Runnable { //This method will be executed once the timer is over
             // Start your app main activity
             val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
+            startActivity(intent)
             // close this activity
             finish()
         }, 2000)

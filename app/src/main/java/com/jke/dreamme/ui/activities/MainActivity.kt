@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                     result.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)?.get(0)
 
                 if (!message.isNullOrEmpty()) {
-                    val principalIntent = Intent(this, PrincipalActivity::class.java)
+                    val principalIntent = Intent(this, ImagenActivity::class.java)
 
                     principalIntent.putExtra("prompt",message)
                     startActivity(principalIntent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
