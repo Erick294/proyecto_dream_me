@@ -1,12 +1,9 @@
 package com.jke.dreamme.model.repositories
 
-import okhttp3.Interceptor
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class APIRepository {
-
     private fun getRetrofitBuilder(base: String): Retrofit {
         return Retrofit.Builder()
             .baseUrl(base)
@@ -20,7 +17,7 @@ class APIRepository {
     }
 
     fun <T> buildStableService(servicio: Class<T>): T {
-        val builder = getRetrofitBuilder("https://api.replicate.com/v1/")
+        val builder = getRetrofitBuilder("https://stablediffusionapi.com/api/v3/")
         return builder.create(servicio)
     }
 

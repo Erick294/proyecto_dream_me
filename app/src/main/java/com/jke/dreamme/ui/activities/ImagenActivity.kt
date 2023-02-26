@@ -1,71 +1,58 @@
 package com.jke.dreamme.ui.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.snackbar.Snackbar
 import com.jke.dreamme.casosUso.StableUC
+import com.jke.dreamme.casosUso.UsuarioUC
 import com.jke.dreamme.databinding.ActivityImagenBinding
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ImagenActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityImagenBinding
-    private var idn: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityImagenBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        generarImagen("jashjabsahj")
-        obtenerImagen(idn)
+        obtenerImagen()
     }
 
-    private fun generarImagen(prom: String){
+    private fun obtenerImagen() {
+        var prompt: String = ""
 
-        lifecycleScope.launch(){
-            var respuesta = StableUC().generarImagen(prom)
-            Log.d("El pepe", respuesta.toString())
-            if (respuesta != null) {
-                idn = respuesta
-            }
+        intent.extras?.let {
+            prompt = it.getString("prompt").toString()
         }
-    }
 
-    private fun obtenerImagen(id: String) {
-
-        lifecycleScope.launch(Dispatchers.Main) {
-            var respuesta = StableUC().obtenerImagen(id)
-            Log.d("El pepe", respuesta.toString())
+        lifecycleScope.launch() {
+            var respuesta = StableUC().getImagen(prompt)
+            Log.d("Data", respuesta.toString())
+            if (respuesta?.status == "success") {
+                val imagen = respuesta.output[0]
+                Picasso.get().load(imagen).into(binding.imagenGenerada)
+                binding.textPrompt.text = prompt
+            }
 
             if(respuesta?.status == "processing"){
+                var tiempo = respuesta.generationTime
+                Log.d("Tiempo", tiempo.toString())
                 Handler().postDelayed(Runnable { //This method will be executed once the timer is over
                     // Start your app main activity
                     // close this activity
                     Log.d("Esperando", respuesta.toString())
+                    finish()
+                }, tiempo.toLong())
 
-                }, 100000)
-
-            if (respuesta?.status == "succeeded") {
-                val imagen = respuesta.output
-                Picasso.get().load(imagen.toString()).into(binding.imagenGenerada)
-            }
-                val respuestaFetch = StableUC().obtenerImagen(respuesta.id)
-                val imagen = respuestaFetch?.output
-                Picasso.get().load(imagen.toString()).into(binding.imagenGenerada)
-            }
-
-            if(respuesta?.status == "failed"){
-                Snackbar.make(
-                    binding.imagenGenerada, "Error",
-                    Snackbar.LENGTH_SHORT
-                ).show()
+                val respuestaFetch = StableUC().getFetch(respuesta.id)
+                val imagen = respuestaFetch?.output?.get(0)
+                Picasso.get().load(imagen).into(binding.imagenGenerada)
             }
         }
     }

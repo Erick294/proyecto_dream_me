@@ -46,8 +46,4 @@ class PrincipalActivity : AppCompatActivity(){
             super.onBackPressed();
         }
   }
-
-    private fun initFragments(){
-
-    }
 }

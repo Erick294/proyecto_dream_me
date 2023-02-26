@@ -8,21 +8,20 @@ import com.jke.dreamme.model.repositories.APIRepository
 class UsuarioUC {
     suspend fun getUsuario(id: String): Usuario? {
         var data: Usuario? = null
-        var idUser: Int = 0
+        var idn: Int = 0
         try {
             val servicio = APIRepository().buildUsuarioService(UsuarioEndPoint::class.java)
             var lista = servicio.getListUsuario()
 
             for(i in (lista.body())!!){
                 if(i.id.toString() == id){
-                   idUser = i.id
+                   idn = i.id
                 }else{
                     Log.d("ERRORRRRRRR",i.email)
                 }
             }
 
-
-            val response = servicio.getUsuario(idUser)
+            val response = servicio.getUsuario(idn)
             if (response.isSuccessful) {
                 data = response.body()!!
             } else {

@@ -34,9 +34,10 @@ class LoginActivity : AppCompatActivity() {
 
 	    lifecycleScope.launch() {
             val usuario = UsuarioUC().getUsuario(id)
+            Log.d("Verificar", usuario.toString())
             if (usuario?.status == "active" || binding.loginTxtEmail.text.contains("hola")) {
                 var intent = Intent(this@LoginActivity, MainActivity::class.java)
-                intent.putExtra("nombre", usuario?.name)
+                intent.putExtra("usuario", usuario?.name)
                 startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this@LoginActivity).toBundle())
             } else {
                 Snackbar.make(

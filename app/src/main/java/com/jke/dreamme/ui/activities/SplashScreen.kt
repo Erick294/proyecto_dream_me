@@ -1,7 +1,6 @@
 package com.jke.dreamme.ui.activities
 
 import android.R
-import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
