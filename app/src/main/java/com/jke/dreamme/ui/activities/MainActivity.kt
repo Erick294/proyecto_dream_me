@@ -4,8 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.RecognizerIntent
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
 import com.jke.dreamme.R
 import com.jke.dreamme.databinding.ActivityMainBinding
@@ -19,6 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initAnim()
         initElements()
     }
 
@@ -35,8 +37,6 @@ class MainActivity : AppCompatActivity() {
                     imagenIntent.putExtra("prompt",message)
                     startActivity(imagenIntent)
                 }
-
-
             } else {
                 Snackbar.make(
                     binding.microButton,
@@ -46,8 +46,18 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    private fun initAnim(){
+        binding.textBienvenidaMain.startAnimation(animationTranslate())
+        binding.textInstruccionMain.startAnimation(animationScale())
+        binding.textInstruccion2Main.startAnimation(animationScale())
+    }
 
     private fun initElements() {
+        intent.extras?.let {
+            val nombre = it.getString("nombre").toString()
+            binding.textBienvenidaMain.text = "Bienvenid@\n" + nombre
+        }
+
         binding.microButton.setOnClickListener {
 
             val speak = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
@@ -64,9 +74,21 @@ class MainActivity : AppCompatActivity() {
                 "Estoy escuchandote"
             )
             speakForResult.launch(speak)
-
         }
+    }
 
+    private fun animationTranslate(): Animation {
+        val animation: Animation;
+
+        animation = AnimationUtils.loadAnimation(this, R.anim.anim_text_translate)
+        return animation
+    }
+
+    private fun animationScale(): Animation{
+        val animation: Animation;
+
+        animation = AnimationUtils.loadAnimation(this, R.anim.anim_text_scale)
+        return animation
     }
 
 }

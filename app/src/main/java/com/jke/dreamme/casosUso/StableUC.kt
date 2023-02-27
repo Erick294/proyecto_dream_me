@@ -9,6 +9,7 @@ import com.jke.dreamme.model.repositories.APIRepository
 
 class StableUC {
 
+    //Genera el modelo
     suspend fun getImagen(prompt:String): RespuestaStable? {
         val c = try {
             val service = APIRepository().buildStableService(StableEndPoint::class.java)
@@ -25,6 +26,7 @@ class StableUC {
         return c
     }
 
+    //Obtiene la imagen
     suspend fun getFetch(id:Long): RespuestaStable?{
         val c = try {
             val service = APIRepository().buildStableService(StableEndPoint::class.java)

@@ -1,7 +1,7 @@
 package com.jke.dreamme.model.entities.api.usuario
 
 data class StableAPI(
-    val key: String = "i6HZXpEOeiOYeZRfN7mKaXoUJIwzRVOGlhK3tZUcQHbJYyE0yNStObfVOEaD",
+    val key: String = "R6d6AzhAoQntdZxGrFFsrh7ZCvuZPgYl9X1VgKjkn6UIWU06D98Ss5v8etEU",
     var prompt: String,
     val negative_prompt: String = "",
     val width: Int = 512,
@@ -15,5 +15,4 @@ data class StableAPI(
     val seed: String = "",
     val webhook: String = "",
     val track_id: String = ""
-
 )
