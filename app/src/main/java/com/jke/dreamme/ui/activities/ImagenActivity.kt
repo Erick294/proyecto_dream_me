@@ -50,10 +50,6 @@ class ImagenActivity : AppCompatActivity() {
 
         initAnim()
         obtenerImagen()
-
-        binding.idBotonGuardar.setOnClickListener{
-            saveToGallery()
-        }
     }
 
     private fun obtenerImagen() {
@@ -77,18 +73,17 @@ class ImagenActivity : AppCompatActivity() {
                 val tiempo = respuesta.generationTime
 
                 Log.d("Tiempo", tiempo.toString())
+                
+                val respuestaFetch = StableUC().getFetch(respuesta.id)
+                imagen = respuestaFetch?.output?.get(0).toString()
 
                     Handler().postDelayed(Runnable { //This method will be executed once the timer is over
                         // Start your app main activity
                         // close this activity
-                        Log.d("Esperando", respuesta.toString())
-                        lifecycleScope.launch() {
-                            val respuestaFetch = StableUC().getFetch(respuesta.id)
-                            imagen = respuestaFetch?.output?.get(0).toString()
-                            Picasso.get().load(imagen).into(binding.imagenGenerada)
-                        }
+                        Log.d("Esperando", respuesta.toString())        
+                        Picasso.get().load(imagen).into(binding.imagenGenerada)
                         finish()
-                    }, 4000)
+                    }, 3500)
                 }
             }
         }
@@ -135,6 +130,7 @@ class ImagenActivity : AppCompatActivity() {
         }
     }
 
+    /*
     private fun saveToGallery() {
         val content = createContent()
         val uri = save(content)
@@ -174,11 +170,11 @@ class ImagenActivity : AppCompatActivity() {
     private fun getBitmap(): Bitmap {
         return BitmapFactory.decodeFile(imagen)
     }
+    */
 
     private fun initAnim(){
         binding.textPrompt.startAnimation(animationTranslate())
         binding.imagenGenerada.startAnimation(animationScale())
-        binding.idBotonGuardar.startAnimation(animationScale())
     }
 
     private fun animationTranslate(): Animation {
