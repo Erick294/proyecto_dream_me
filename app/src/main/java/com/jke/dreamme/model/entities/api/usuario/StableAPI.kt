@@ -1,7 +1,7 @@
 package com.jke.dreamme.model.entities.api.usuario
 
 data class StableAPI(
-    val key: String = "R6d6AzhAoQntdZxGrFFsrh7ZCvuZPgYl9X1VgKjkn6UIWU06D98Ss5v8etEU",
+    val key: String = "irofPy52RKVGaX2qP47gpmYLp7WZlYPYY0ISSjBXdTynWSalRaJBxZmeAbix",
     var prompt: String,
     val negative_prompt: String = "",
     val width: Int = 512,
